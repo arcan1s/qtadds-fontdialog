@@ -39,7 +39,7 @@ void CFont::setCurrentColor(const QColor color)
 }
 
 
-void CFont::html2QFont(const int htmlWeight)
+int CFont::html2QFont(const int htmlWeight)
 {
     int weight = 16;
     switch(htmlWeight) {
