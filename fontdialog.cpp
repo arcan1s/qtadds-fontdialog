@@ -39,6 +39,12 @@ void CFont::setCurrentColor(const QColor color)
 }
 
 
+QFont CFont::toQFont()
+{
+    return QFont(family(), pointSize(), weight(), italic());
+}
+
+
 CFontDialog::CFontDialog(QWidget *parent, bool needWeight, bool needItalic)
     : QDialog(parent)
 {

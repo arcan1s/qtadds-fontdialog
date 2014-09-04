@@ -33,6 +33,7 @@ public:
                    QColor color = QColor(QString("#000000")));
     QColor color();
     void setCurrentColor(const QColor color);
+    QFont toQFont();
 
 private:
     QColor currentColor;
@@ -48,7 +49,7 @@ public:
                          const bool needWeight = true,
                          const bool needItalic = true);
     ~CFontDialog();
-    static CFont getFont(const QString title = QString("Select font"),
+    static CFont getFont(const QString title = tr("Select font"),
                          CFont defaultFont = CFont(QString("Arial"),
                                                    12, 400, false,
                                                    QColor(QString("#000000"))),
