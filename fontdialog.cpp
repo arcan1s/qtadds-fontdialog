@@ -104,13 +104,13 @@ int CFont::qFont2html(const int weight)
 
 int CFont::htmlWeight()
 {
-    return qFont2html(weight());
+    return CFont::qFont2html(weight());
 }
 
 
 void CFont::setHtmlWeight(const int htmlWeight)
 {
-    setWeight(html2QFont(htmlWeight));
+    setWeight(CFont::html2QFont(htmlWeight));
 }
 
 
