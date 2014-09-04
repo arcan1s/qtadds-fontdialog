@@ -31,10 +31,17 @@ public:
     explicit CFont(const QString family, int pointSize = -1,
                    int weight = -1, bool italic = false,
                    QColor color = QColor(QString("#000000")));
+    // color properties
     QColor color();
-    int htmlWeight();
     void setCurrentColor(const QColor color);
+    // html weight properties
+    static html2QFont(const int htmlWeight);
+    static qFont2html(const int weight);
+    int htmlWeight();
     void setHtmlWeight(const int htmlWeight);
+    // conversion to QFont
+    static CFont fromQFont(const QFont font,
+                           const QColor color = QColor(QString("#000000")));
     QFont toQFont();
 
 private:

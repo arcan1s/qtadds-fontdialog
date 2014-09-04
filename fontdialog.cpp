@@ -33,43 +33,13 @@ QColor CFont::color()
 }
 
 
-int CFont::htmlWeight()
-{
-    int htmlWeight = 400;
-    switch(weight()) {
-    case 16:
-        htmlWeight = 100;
-        break;
-    case 25:
-        htmlWeight = 300;
-        break;
-    case 50:
-        htmlWeight = 400;
-        break;
-    case 63:
-        htmlWeight = 600;
-        break;
-    case 75:
-        htmlWeight = 800;
-        break;
-    case 87:
-        htmlWeight = 900;
-        break;
-    default:
-        break;
-    }
-
-    return htmlWeight;
-}
-
-
 void CFont::setCurrentColor(const QColor color)
 {
     currentColor = color;
 }
 
 
-void CFont::setHtmlWeight(const int htmlWeight)
+void CFont::html2QFont(const int htmlWeight)
 {
     int weight = 16;
     switch(htmlWeight) {
@@ -98,7 +68,55 @@ void CFont::setHtmlWeight(const int htmlWeight)
         break;
     }
 
-    setWeight(weight);
+    return weight;
+}
+
+
+int CFont::qFont2html(const int weight)
+{
+    int htmlWeight = 400;
+    switch(weight) {
+    case 16:
+        htmlWeight = 100;
+        break;
+    case 25:
+        htmlWeight = 300;
+        break;
+    case 50:
+        htmlWeight = 400;
+        break;
+    case 63:
+        htmlWeight = 600;
+        break;
+    case 75:
+        htmlWeight = 800;
+        break;
+    case 87:
+        htmlWeight = 900;
+        break;
+    default:
+        break;
+    }
+
+    return htmlWeight;
+}
+
+
+int CFont::htmlWeight()
+{
+    return qFont2html(weight());
+}
+
+
+void CFont::setHtmlWeight(const int htmlWeight)
+{
+    setWeight(html2QFont(htmlWeight));
+}
+
+
+CFont CFont::fromQFont(const QFont font, const QColor color)
+{
+    return CFont(font.family(), font.pointSize(), font.weight(), font.italic(), color);
 }
 
 
