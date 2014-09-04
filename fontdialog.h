@@ -35,8 +35,8 @@ public:
     QColor color();
     void setCurrentColor(const QColor color);
     // html weight properties
-    static html2QFont(const int htmlWeight);
-    static qFont2html(const int weight);
+    static int html2QFont(const int htmlWeight);
+    static int qFont2html(const int weight);
     int htmlWeight();
     void setHtmlWeight(const int htmlWeight);
     // conversion to QFont
