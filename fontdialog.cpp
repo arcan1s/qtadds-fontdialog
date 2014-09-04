@@ -33,9 +33,72 @@ QColor CFont::color()
 }
 
 
+int CFont::htmlWeight()
+{
+    int htmlWeight = 400;
+    switch(weight()) {
+    case 16:
+        htmlWeight = 100;
+        break;
+    case 25:
+        htmlWeight = 300;
+        break;
+    case 50:
+        htmlWeight = 400;
+        break;
+    case 63:
+        htmlWeight = 600;
+        break;
+    case 75:
+        htmlWeight = 800;
+        break;
+    case 87:
+        htmlWeight = 900;
+        break;
+    default:
+        break;
+    }
+
+    return htmlWeight;
+}
+
+
 void CFont::setCurrentColor(const QColor color)
 {
     currentColor = color;
+}
+
+
+void CFont::setHtmlWeight(const int htmlWeight)
+{
+    int weight = 16;
+    switch(htmlWeight) {
+    case 100:
+        weight = 16;
+        break;
+    case 200:
+    case 300:
+        weight = 25;
+        break;
+    case 400:
+        weight = 50;
+        break;
+    case 500:
+    case 600:
+        weight = 63;
+        break;
+    case 700:
+    case 800:
+        weight = 75;
+        break;
+    case 900:
+        weight = 87;
+        break;
+    default:
+        break;
+    }
+
+    setWeight(weight);
 }
 
 

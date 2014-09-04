@@ -32,7 +32,9 @@ public:
                    int weight = -1, bool italic = false,
                    QColor color = QColor(QString("#000000")));
     QColor color();
+    int htmlWeight();
     void setCurrentColor(const QColor color);
+    void setHtmlWeight(const int htmlWeight);
     QFont toQFont();
 
 private:
