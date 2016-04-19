@@ -62,8 +62,9 @@ public:
                          CFont defaultFont = CFont(QString("Arial"),
                                                    12, 400, false,
                                                    QColor(QString("#000000"))),
-                        const bool needWeight = true,
-                        const bool needItalic = true);
+                         const bool needWeight = true,
+                         const bool needItalic = true,
+                         int *status = nullptr);
 
 private slots:
     void updateColor(const QString color);

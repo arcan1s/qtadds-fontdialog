@@ -182,7 +182,7 @@ void CFontDialog::updateColor(const QString color)
 }
 
 
-CFont CFontDialog::getFont(const QString title, CFont defaultFont, bool needWeight, bool needItalic)
+CFont CFontDialog::getFont(const QString title, CFont defaultFont, bool needWeight, bool needItalic, int *status)
 {
     CFontDialog dlg(0, needWeight, needItalic);
 
@@ -202,11 +202,14 @@ CFont CFontDialog::getFont(const QString title, CFont defaultFont, bool needWeig
         dlg.italicBox->setCurrentIndex(0);
 
     CFont font = CFont(defaultFont);
-    if (dlg.exec() == 1)
+    int ret = dlg.exec();
+    if (ret == 1)
         font = CFont(dlg.fontBox->currentFont().family(),
                      dlg.sizeBox->value(),
                      dlg.weightBox->value(),
                      dlg.italicBox->currentIndex() == 1,
                      QColor(dlg.colorBox->currentText()));
+    if (status != nullptr)
+        *status = ret;
     return font;
 }
